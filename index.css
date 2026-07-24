@@ -1,0 +1,92 @@
+body {
+    margin:0;
+    padding:0;
+    background: radial-gradient(#fdfddc, #e6d7a3);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width:100vw;
+    min-height:100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    width:100%;
+    align-content: center;
+    justify-content: left;
+    display: flex;
+    background-color: white;
+    margin:0;
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: 0px 0px 10px rgb(136, 130, 80);
+}
+
+nav * {
+    margin:2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-width:50px;
+    text-align: center;
+}
+
+nav a {
+    color:white;
+    background-color: black;
+    padding:10px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    margin-left:1vw;
+}
+
+.miku {
+    background-color: #3cb2c2;
+    border-color: #1d7d8a;
+}
+.neru {
+    margin-left:5vw;
+    background-color: #e6bc33;
+    border-color: #947719;
+}
+.teto {
+    background-color: #db2e62;
+    border-color: #8d173a;
+}
+
+main {
+    padding:10px;
+    margin:10px;
+    width:90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+main p {
+    color:rgb(88, 85, 71);
+    font-size: 1vw;
+    font-weight: 600;
+    text-align: end;
+    width:50%;
+    margin-top:50px;
+}
+
+header {
+    color:rgb(49, 48, 41);
+    font-weight: 800;
+    font-size: 3.5vw;
+    width:100%;
+}
+
+.triplebaka {
+    position: absolute;
+    bottom:0%;
+    left:5vw;
+    width:55vw;
+    margin:0;
+    padding:0;
+    filter: drop-shadow(0px 0px 15px #aa9d6c);
+    z-index: -1;
+}
