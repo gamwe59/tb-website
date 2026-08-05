@@ -10,62 +10,20 @@ body {
     align-items: center;
 }
 
-nav {
-    width:100%;
-    align-content: center;
-    justify-content: left;
-    display: flex;
-    background-color: white;
-    margin:0;
-    padding: 5px;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-nav * {
-    margin:2px;
-    margin-left: 10px;
-    margin-right: 10px;
-    min-width:50px;
-    text-align: center;
-}
-
-nav a {
-    color:white;
-    background-color: black;
-    padding:10px;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 5px;
-    margin-left:1vw;
-}
-
-.miku {
-    background-color: #3cb2c2;
-    border-color: #1d7d8a;
-}
-.neru {
-    margin-left:5vw;
-    background-color: #e6bc33;
-    border-color: #947719;
-}
-.teto {
-    background-color: #db2e62;
-    border-color: #8d173a;
-}
-
 main {
     padding:10px;
     margin:10px;
-    width:90vw;
+    width: 97%;
+        height:95%;
     display: flex;
     flex-direction: column;
     align-items: end;
+    margin-bottom: 0;
 }
 
 main p {
     color:rgb(88, 85, 71);
-    font-size: 1vw;
+    font-size: 20px;
     font-weight: 600;
     text-align: end;
     width:50%;
@@ -75,17 +33,39 @@ main p {
 header {
     color:rgb(49, 48, 41);
     font-weight: 800;
-    font-size: 3.5vw;
+    font-size: 75px;
     width:100%;
 }
 
 .triplebaka {
     position: absolute;
     bottom:0%;
-    left:5vw;
-    width:55vw;
+    left:10px;
+    width:55%;
     margin:0;
     padding:0;
     filter: drop-shadow(0px 0px 15px #aa9d6c);
     z-index: -1;
+}
+
+/* Mobile CSS */
+
+@media only screen and (max-width: 768px) {
+    main {
+        width:90%;
+    }
+    main p {
+        width:100%;
+    margin-top:20px;
+    text-align: left;
+    }
+    header {
+        font-size: 20px;
+        width:100%;
+        text-align: center;
+
+    }
+    .triplebaka {
+        width:95%;
+    }
 }

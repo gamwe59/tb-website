@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tripletripletriple bakabakabaka</title>
+    <title>TB - GIF Search</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/gallery.css">
+    <link rel="stylesheet" href="/info.css">
     <link rel="stylesheet" href="/gifs.css">
 </head>
 <body>
@@ -11,39 +14,29 @@
         <a href="/" class="neru">HOME</a>
         <a href="/gifs" class="miku">GIFS</a>
         <a href="/profiles" class="teto">PROFILES</a>
-    </nav>
-    <nav class="search">
-        <div class="searchholder">
-            <input type="search" name="search" placeholder="Search for GIFs and Images"></input>
-            <button><img src="/images/search.png"></button>
+        <div class="profile" id="profile">
+            <script type="module" src="./profilebutton.js"></script>
         </div>
     </nav>
-    <main>
-        <header>GIFs and Images</header>
+    <script type="module" src="./gifSearch.js"></script>
+    <div class="container">
+        <div class="search">
+            <div class="searchholder">
+                <input type="search" name="search" placeholder="Search for GIFs and Images" id="search"></input>
+            </div>
+        </div>
         <div class="gallery">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
-            <img src="https://yurion.top/webp/full/29.webp">
+            <header>GIFs and Images</header>
+            <div id="content" class="content"></div>
         </div>
-    </main>
+        <div class="info">
+            <p>made with love by</p>
+            <div class="links">
+                <a href="https://gaq9.com">lunascape</a>
+                <p>l</p>
+                <a href="https://yurion.top">emilosophy</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

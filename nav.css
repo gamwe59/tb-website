@@ -1,0 +1,233 @@
+nav {
+    position:fixed;
+    z-index: 100;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width:100%;
+    align-content: center;
+    justify-content: left;
+    display: flex;
+    background-color: white;
+    margin:0;
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container {
+    top:64px;
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+.profile {
+    display:flex;
+    justify-content: end;
+    align-items: end;
+    flex-grow: 100;
+    margin-right:50px;
+}
+
+.pfp {
+    margin:0;
+    padding:0;
+    border:none;
+    background: none;
+    cursor:pointer;
+    width:fit-content;
+    height:100%;
+}
+.pfp:hover {
+    filter: brightness(0.8);
+}
+.pfp img {
+    border-radius:100%;
+    margin:0;
+    padding:0;
+    height: 100%;
+    width:auto;
+    margin-right:10px;
+    object-fit:scale-down;
+}
+
+.signin {
+    margin-right: 50px;
+    background-color: #5188ff;
+    padding:5px;
+    border:0;
+    margin:0;
+    width:100px;
+    align-self: center;
+    color: white;
+    font-weight: 700;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    cursor:pointer
+}
+
+.dropdown {
+    background-color: white;
+    position:fixed;
+    right:50px;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    text-align: end;
+    justify-content: end;
+    align-items: end;
+    z-index: -1;
+}
+.dropopen {
+    z-index: 1;
+    visibility:visible;
+}
+.dropclose {
+    top:0px;
+    z-index: -1;
+    visibility: hidden;
+}
+
+.dropdown a {
+    background: none;
+    color: #8682c4;
+    font-weight: 600;
+    text-decoration: underline;
+    width:fit-content;
+    text-align: end;
+    text-wrap: nowrap;
+    flex-grow:100;
+    cursor:pointer;
+    padding:0;
+    border:none;
+    
+}
+
+/* Desktop CSS */
+
+@media only screen and (min-width: 768px) {
+    nav {
+        height:54px;
+    }
+
+    .container {
+        top:64px;
+    }
+    nav * {
+        margin:2px;
+        margin-left: 10px;
+        margin-right: 10px;
+        min-width:50px;
+        text-align: center;
+    }
+
+    .signin {
+        height:44px;
+        font-size: 22px;
+        line-height: 42px;
+    }
+
+    nav a {
+        color:white;
+        background-color: black;
+        padding:10px;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 5px;
+        margin-left:10px;
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .miku {
+        background-color: #3cb2c2;
+        border-color: #1d7d8a;
+    }
+    .neru {
+        margin-left:50px;
+        background-color: #e6bc33;
+        border-color: #947719;
+    }
+    .teto {
+        background-color: #db2e62;
+        border-color: #8d173a;
+    }
+
+    .pfp {
+        height:50px;
+        width:50px;
+    }
+    .dropopen {
+        top:64px;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    nav {
+        height:44px;
+        justify-content: baseline;
+    }
+
+    .container {
+        top:54px;
+    }
+
+    nav * {
+        margin:2px;
+        margin-left: 5px;
+        margin-right: 5px;
+        min-width:30px;
+        text-align: center;
+    }
+
+    nav a {
+        color:white;
+        background-color: black;
+        padding:10px;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 5px;
+        margin-left:10px;
+        font-size: 16px;
+        line-height: 18px;
+        max-height: 20px;
+    }
+
+    .miku {
+        background-color: #3cb2c2;
+        border-color: #1d7d8a;
+    }
+    .neru {
+        background-color: #e6bc33;
+        border-color: #947719;
+    }
+    .teto {
+        background-color: #db2e62;
+        border-color: #8d173a;
+    }
+
+    .profile {
+        margin-right: 10px;
+    }
+
+    .pfp {
+        margin:0;
+        height:45px;
+        width:45px;
+        transform: translate(0,2.5px);
+    }
+    .dropdown {
+        right:10px;
+    }
+
+    .dropopen {
+        top:54px;
+    }
+
+    .signin {
+        height:34px;
+        max-height: 500px;
+        font-size: 22px;
+        line-height: 33px;
+    }
+}
