@@ -1,0 +1,177 @@
+body {
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width:100vw;
+    min-height:100vh;
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(#fdfddc, #e6d7a3);
+    height:fit-content;
+}
+
+main {
+    width:fit-content;
+    max-width: 100%;
+    height:fit-content;
+    align-self: center;
+    display:flex;
+    flex-direction: row;
+    background-color: #8568003f;
+    padding:15px;
+    margin:20px;
+    margin-bottom: 60px;
+}
+
+.gifinfo {
+    width:300%;
+    margin-right:15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 300;
+}
+
+.gallery {
+    width:100%;
+    flex-grow: 1;
+}
+header  {
+    color:rgb(49, 48, 41);
+    font-weight: 700;
+    font-size: 30px !important;
+    width:100%;
+    margin-bottom: 10px;
+    margin-top:0 !important;
+}
+
+.gifinfo img {
+    object-fit: contain;
+    align-self: center;
+    justify-self: center;
+    margin:0;
+    background-color: #aa9e7446;
+    width:100%;
+    max-height:68vh;
+}
+
+.userinfo {
+    width:100%;
+    display: flex;
+    margin-top:10px;
+}
+.user {
+    display: flex;
+    background: none;
+    border:none;
+    cursor:pointer;
+    height:50px;
+    align-items: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.user img {
+    border-radius: 100%;
+    height:100%;
+    width:auto;
+    margin-right: 10px;
+}
+.user p {
+    color:rgb(49, 48, 41);
+    font-size: 20px;
+    font-weight: 600;
+}
+.user:hover {
+    filter:contrast(1.5) brightness(0.9);
+}
+
+.format {
+    width:100%;
+    flex-grow: 100;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.format button {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: none;
+    border:none;
+    color: #70795a;
+    font-weight: 600;
+    font-size: 20px;
+    cursor:pointer;
+    margin-left:10px;
+    padding:5px;
+}
+.format .selected {
+    color:rgb(49, 48, 41);
+    background-color: #aa9e7446;
+    border-radius: 4px;
+}
+
+.tags {
+    margin-top:10px;
+    display:flex;
+    flex-wrap: wrap;
+}
+.tags header {
+    font-size: 25px !important;
+    margin:0;
+    margin-bottom: 5px;
+}
+.tags a {
+    background-color: #1d9476;
+    padding:10px;
+    color:white;
+    margin:5px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+.details {
+    margin-top: 10px;
+}
+
+.details header {
+    font-size: 25px !important;
+    margin:0;
+    margin-bottom: 5px !important;
+}
+.details p {
+    margin:0;
+}
+
+/* Mobile CSS */
+
+@media only screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        width:85%;
+    }
+    .gifinfo {
+        width:100%;
+        margin-right:0px;
+    }
+    .gallery {
+        width:100%;
+    }
+    .format {
+        width:fit-content;
+        margin: 10px;
+        margin-left: 0;
+    }
+    .format button {
+        margin:0;
+        margin-right:10px;
+    }
+    .userinfo {
+        flex-direction: column;
+    }
+}

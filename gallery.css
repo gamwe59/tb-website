@@ -28,6 +28,7 @@
 .gallery {
     width:90%;
     max-width: 1740px;
+    min-height: 100vh;
 }
 
 .gallery header {

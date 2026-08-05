@@ -1,0 +1,36 @@
+
+
+.search {
+    justify-content: center;
+    background-color: #5e4c2c;
+    padding:0;
+    width:100%;
+    display:flex;
+}
+
+.searchholder {
+    display:flex;
+    background-color: white;
+    min-width: 80%;
+    width:1740px;
+    max-width: 1740px;
+    padding:0;
+    margin:10px;
+}
+
+input {
+    text-align: left;
+    width:100%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding:0.8vw;
+    height:100%;
+    font-size: 25px;
+    font-weight: 600;
+    border:none;
+    text-align: left;
+    flex-grow: 1000;
+    padding:15px;
+}
+input::placeholder {
+    color:#b6b4ab;
+}

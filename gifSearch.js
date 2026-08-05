@@ -139,11 +139,10 @@ async function loadGallery(terms) {
 }
 loadGallery()
 
-search.addEventListener("input", function() {
-    loadGallery([search.value])
-});
-search.addEventListener("focusin", function() {
-    loadGallery([search.value])
+search.addEventListener("keyup", function(e) {
+    if (event.key === "Enter") {
+        loadGallery([search.value])
+    }
 });
 
 //detect when resize

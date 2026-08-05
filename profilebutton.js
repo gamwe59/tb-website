@@ -13,7 +13,6 @@ async function me() {
         const result = await response.json();
         user = result.user;
         if (user) {
-            console.log(user)
             loadProfile(true)
         }
     } catch (error) {
