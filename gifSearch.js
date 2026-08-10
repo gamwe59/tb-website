@@ -11,6 +11,13 @@ let imgWidth = 400
 
 let gallery = {}
 
+let loaded = 0
+let foundAllResults = false
+
+let searchterms = null
+let USP = new URLSearchParams(document.location.search);
+let url = new URL(window.location.href)
+
 function setSize() {
     let gap = 5
 
@@ -20,7 +27,6 @@ function setSize() {
     fx = Math.min(fx, 8)
     fx = Math.max(fx,2)
     divWidth -= gap*(fx-1)
-    console.log(fx)
 
     imgWidth = (divWidth/fx)
 
@@ -81,68 +87,98 @@ function setSize() {
     content.style.height = furthestDown+"px"
 }
 
-function addImgs() {
-    content.innerHTML = ""
-    for (const [key, data] of Object.entries(gallery)) {
-        let format = data.media.webp
-        if (!format) {
-            format = data.media.original
-        }
-        let obj = document.createElement("a")
-        obj.href = data.itemurl
-        obj.setAttribute("contentid", data.id)
-        let img = document.createElement("img")
-        img.src = format.url
-        obj.appendChild(img)
-        content.append(obj)
+function addImg(data) {
+    let format = data.media.webp
+    if (!format) {
+        format = data.media.original
     }
-    setSize();
+    let obj = document.createElement("a")
+    obj.href = data.itemurl
+    obj.setAttribute("contentid", data.id)
+    let img = document.createElement("img")
+    img.src = format.url
+    obj.appendChild(img)
+    content.append(obj)
 }
 
 
-async function loadGallery(terms) {
-    gallery = {}
-    const url = `https://tripletripletriplebakabakabaka.club/api/v1/search?`;
+async function loadGallery(add) {
+    let filter = USP.getAll("s")
+    searchterms = filter.slice()
+    console.log(searchterms)
+    search.value = ""
+    for (const [key, data] of Object.entries(searchterms)) {
+        search.value += data
+    }
+    let url = `https://tripletripletriplebakabakabaka.club/api/v1/search?`;
     try {
-        const params = new URLSearchParams();
-        if (terms) {
-            for (const [key, data] of Object.entries(terms)) {
-                params.append("q", data)
+        console.log(!add || !foundAllResults)
+        if (!add || !foundAllResults) {
+            const params = new URLSearchParams();
+            if (add) {
+                params.append("pos", loaded)
+            } else {
+                gallery = {}
+                loaded = 0
+                content.innerHTML = ""
             }
-        } else {
-            params.append("q", "a");
-            params.append("q", "e");
-            params.append("q", "i");
-            params.append("q", "o");
-            params.append("q", "u");
-        }
-        const response = await fetch(url+params)
-        if (!response.ok) {
-            throw new Error(response.status);
-        }
-
-        const result = await response.json();
-        if (result) {
-            console.log(result)
-            for (let i = 0; i < result.results.length; i++) {
-                let data = result.results[i]
-                if (data.media) {
-                    gallery[data.id] = data
+            if (searchterms.length >= 1) {
+                for (const [key, data] of Object.entries(searchterms)) {
+                    params.append("q", data)
                 }
+            } else {
+                url = `https://tripletripletriplebakabakabaka.club/api/v1/media/all?`
             }
-            addImgs();
+            const response = await fetch(url+params)
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+
+            const result = await response.json();
+            if (result) {
+                foundAllResults = (result.results.length <= 0)
+                for (let i = 0; i < result.results.length; i++) {
+                    let data = result.results[i]
+                    loaded++
+                    if (data.media) {
+                        gallery[data.id] = data
+                        addImg(data);
+                    }
+                }
+            setSize();
+        }
         }
     } catch (error) {
         console.error(error.message);
         return;
     }
 }
-loadGallery()
+loadGallery(false)
 
 search.addEventListener("keyup", function(e) {
     if (event.key === "Enter") {
-        loadGallery([search.value])
+        console.log(search.value)
+        searchterms = [search.value]
+        USP.delete("s")
+        USP.append("s", search.value)
+        url.searchParams.delete("s")
+        url.searchParams.append("s", search.value)
+        if (!search.value) {
+            searchterms = null
+            USP.delete("s")
+            url.searchParams.delete("s")
+        }
+        history.replaceState({}, '', url.href)
+        loadGallery(false)
     }
+});
+
+//detect touch bottom
+
+window.addEventListener('scroll', function() {
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+    loadGallery(true)
+  }
 });
 
 //detect when resize

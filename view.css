@@ -16,7 +16,7 @@ body {
 
 main {
     width:fit-content;
-    max-width: 100%;
+    max-width: 80%;
     height:fit-content;
     align-self: center;
     display:flex;
@@ -33,11 +33,6 @@ main {
     display: flex;
     flex-direction: column;
     flex-grow: 300;
-}
-
-.gallery {
-    width:100%;
-    flex-grow: 1;
 }
 header  {
     color:rgb(49, 48, 41);
@@ -78,10 +73,11 @@ header  {
     width:auto;
     margin-right: 10px;
 }
-.user p {
+.user a {
     color:rgb(49, 48, 41);
     font-size: 20px;
     font-weight: 600;
+    text-decoration: none;
 }
 .user:hover {
     filter:contrast(1.5) brightness(0.9);
@@ -115,6 +111,7 @@ header  {
     margin-top:10px;
     display:flex;
     flex-wrap: wrap;
+    width:100%;
 }
 .tags header {
     font-size: 25px !important;
@@ -146,6 +143,53 @@ header  {
 }
 .details p {
     margin:0;
+}
+
+.content {    
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin:auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition-duration: 0.2s;
+    margin-bottom: 50px;
+    top:0;
+}
+
+.gallery {
+    max-width: 1740px;
+    min-height: 100vh;
+    width:100%;
+    flex-grow: 1;
+}
+
+.gallery a {    
+    position:relative;
+    display:block;
+    align-self: center;
+    justify-self: center;
+    transition: width 0.2s, height 0.2s, transform 0.2s, z-index 0.2s step-end;
+    z-index: 2;
+    margin-bottom: 5px;
+    width:100%;
+}
+.gallery a img {
+    object-fit: fill;
+    width:100%;
+    height:100%;
+    margin:0;
+}
+.gallery header {
+    color:rgb(49, 48, 41);
+    font-weight: 700;
+    font-size: 35px;
+    width:100%;
+    max-width: 1740px;
+    margin-bottom: 10px;
+    margin-top:20px;
 }
 
 /* Mobile CSS */

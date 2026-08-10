@@ -50,7 +50,7 @@ main p {
     margin-bottom:20px;
 }
 .banner {
-    background-color: #ff99e7;
+    background: none;
     width:100%;
     aspect-ratio: 2.7;
     margin:0;

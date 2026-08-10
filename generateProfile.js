@@ -1,6 +1,7 @@
 let content = document.getElementById("content");
+let search = document.getElementById("search")
 
-let testid = "1203618379991097385";
+const testid = window.location.pathname.split('/profile/')[1];
 
 let user
 
@@ -9,6 +10,11 @@ let loading = false;
 let imgWidth = 400
 
 let gallery = {}
+
+let loaded = 0
+let foundAllResults = false
+
+let searchterms = null
 
 function setSize() {
     let gap = 5
@@ -19,7 +25,6 @@ function setSize() {
     fx = Math.min(fx, 8)
     fx = Math.max(fx,2)
     divWidth -= gap*(fx-1)
-    console.log(fx)
 
     imgWidth = (divWidth/fx)
 
@@ -37,6 +42,7 @@ function setSize() {
         let format = img.media.webp
         if (!format) {
             format = img.media.original
+            console.log(format)
         }
 
         let aspectRatio = format.dims[0]/format.dims[1]
@@ -80,43 +86,53 @@ function setSize() {
     content.style.height = furthestDown+"px"
 }
 
-function addImgs() {
-    for (const [key, data] of Object.entries(gallery)) {
-        let format = data.media.webp
-        if (!format) {
-            format = data.media.original
-        }
-        let obj = document.createElement("a")
-        obj.href = data.itemurl
-        obj.setAttribute("contentid", data.id)
-        let img = document.createElement("img")
-        img.src = format.url
-        obj.appendChild(img)
-        content.append(obj)
+function addImg(data) {
+    let format = data.media.webp
+    if (!format) {
+        format = data.media.original
     }
-    setSize();
+    let obj = document.createElement("a")
+    obj.href = data.itemurl
+    obj.setAttribute("contentid", data.id)
+    let img = document.createElement("img")
+    img.src = format.url
+    obj.appendChild(img)
+    content.append(obj)
 }
 
 
-async function loadGallery() {
-    const url = `https://tripletripletriplebakabakabaka.club/api/v1/search?`;
+async function loadGallery(add) {
+    let url = `https://tripletripletriplebakabakabaka.club/api/v1/search?`;
     try {
-        const params = new URLSearchParams();
-        params.append("q", `@${user.username}`);
-        const response = await fetch(url+params)
-        if (!response.ok) {
-            throw new Error(response.status);
-        }
-
-        const result = await response.json();
-        if (result) {
-            for (let i = 0; i < result.results.length; i++) {
-                let data = result.results[i]
-                if (data.media) {
-                    gallery[data.id] = data
-                }
+        console.log(!add || !foundAllResults)
+        if (!add || !foundAllResults) {
+            const params = new URLSearchParams();
+            if (add) {
+                params.append("pos", loaded)
+            } else {
+                gallery = {}
+                loaded = 0
+                content.innerHTML = ""
             }
-            addImgs();
+            params.append("q", `@${user.username}`);
+            const response = await fetch(url+params)
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+
+            const result = await response.json();
+            if (result) {
+                foundAllResults = (result.results.length <= 0)
+                for (let i = 0; i < result.results.length; i++) {
+                    let data = result.results[i]
+                    loaded++
+                    if (data.media) {
+                        gallery[data.id] = data
+                        addImg(data);
+                    }
+                }
+            setSize();
+        }
         }
     } catch (error) {
         console.error(error.message);
@@ -131,8 +147,10 @@ let banner = document.getElementById("banner")
 function loadProfile() {
     pfp.src = user.avatars[256];
     username.textContent = user.username;
-    banner.src = user.banner;
-    loadGallery();
+    if (user.banner) {
+        banner.src = user.banner;
+    }
+    loadGallery(false)
 }
 
 async function me() {
@@ -153,6 +171,14 @@ async function me() {
     }
 }
 me();
+
+//detect touch bottom
+
+window.addEventListener('scroll', function() {
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+    loadGallery(true)
+  }
+});
 
 //detect when resize
 
