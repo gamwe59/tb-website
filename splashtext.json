@@ -72,7 +72,7 @@
         "user": "a6hawk"
     },
     {
-        "text": "<img src=\"https://media.discordapp.net/attachments/1445589758511284319/1535027321474515024/twitter_2064787432990495220.gif?ex=6a764518&is=6a74f398&hm=e4a603f962a81178bb68e10d480a6d20832f723d2d11564d16584be4bcc47c46&=\">",
+        "text": "<img src=\"/images/twitter_2064787432990495220.gif\">",
         "user": "a6hawk"
     },
     {
@@ -136,7 +136,7 @@
         "user": "lunascape"
     },
     {
-        "text": "<img src=\"https://media.discordapp.net/attachments/1445589758511284319/1535031870650323086/image.png?ex=6a764955&is=6a74f7d5&hm=1f466f874a0f242400600c2b245024b3240bc5ba3b6ac5e268857dcf3bc5eb26&=&format=webp&quality=lossless\">",
+        "text": "<img src=\"/images/best-of-hypotheticals.png\">",
         "user": "a6hawk"
     },
     {
@@ -240,7 +240,7 @@
         "user": "llammert"
     },
     {
-        "text": "<a href=\"https://a6hawk.com/kill/kill.webn\">https://a6hawk.com/kill/kill.webn</a>",
+        "text": "<a href=\"https://a6hawk.com/kill/kill.webm\">https://a6hawk.com/kill/kill.webm</a>",
         "user": "a6hawk"
     },
     {
@@ -420,11 +420,11 @@
         "user": "billieblueberry"
     },
     {
-        "text": "<img src=\"https://media.discordapp.net/attachments/1445589758511284319/1535106662757834752/adamsandlercum.gif?ex=6a768efd&is=6a753d7d&hm=d8543a8512aa91449cb92a7c8aaf30bdbb520f84287cba4b0fd27b7808a894c3&=\"",
-        "user": "<img style=\"object-fit: cover; border-radius:100%; width:50px; height:50px;\" src=\"https://media.discordapp.net/attachments/1445589758511284319/1535106662757834752/adamsandlercum.gif?ex=6a768efd&is=6a753d7d&hm=d8543a8512aa91449cb92a7c8aaf30bdbb520f84287cba4b0fd27b7808a894c3&=\">"
+        "text": "<img src=\"/images/adamsandlercum.gif\">",
+        "user": "<img style=\"object-fit: cover; border-radius:100%; width:50px; height:50px;\" src=\"/images/adamsandlercum.gif\">"
     },
     {
-        "text": "<img src=\"https://images-ext-1.discordapp.net/external/sYJNlOqCYvWBTlHB9L6kYr0sVpPuRchoK7d-QCW8CT4/https/media.tenor.com/rP_oL6GqPgQAAAPo/dear-waterboy.mp4\">",
+        "text": "<img src=\"/images/dear-waterboy.gif\"\">",
         "user": "billieblueberry"
     },
     {
@@ -452,7 +452,7 @@
         "user": "a6hawk"
     },
     {
-        "text": "<img src=\"https://media.discordapp.net/attachments/1445589758511284319/1535114881127420014/vlc_bTSE7coS30.png?ex=6a7696a4&is=6a754524&hm=13910d400fc70554c78774e6689276b62f99d63f564cea8f4b89b875475edf0b&=&format=webp&quality=lossless\">",
+        "text": "<img src=\"/images/vlc_bTSE7coS30.png\">",
         "user": "bungy"
     },
     {
