@@ -200,7 +200,7 @@ main p {
     margin:0;
     margin-right: 5px;
 }
-.addedTags .tag button {
+.tag button {
     font-family:monospace;
     margin-left:5px;
     border: none;
@@ -306,12 +306,6 @@ main p {
     .addedTags {
         margin-left:5px;
     }
-    .addedTags p {
-        font-size: 16px;
-    }
-    .addedTags p button {
-        font-size: 15px;
-    }
 
     .upload label {
         font-size: 16px;
@@ -329,15 +323,14 @@ main p {
         width:90%;
         height:90%;
     }
-    .addedTags p {
-        background-color: rgb(100, 62, 37);
-        border-radius: 15px;
-        padding: 7px;
-        padding-right: 15px;
-        padding-left: 10px;
-        margin:5px;
-        color: white;
-        display:flex;
-        width:fit-content;
+    .tag {
+        padding:0;
+    }
+    .tag p {
+        font-size: 16px;
+    }
+    .tag button {
+        font-size: 15px;
+        height:22px;
     }
 }

@@ -11,6 +11,8 @@ let upbutton = document.getElementById("upbutton")
 let useOriginal = document.getElementById("useOriginal")
 
 let confirmPage = document.getElementById("confirm")
+let confirmText = document.getElementById("confirmText")
+let confirmImg = document.getElementById("confirmImg")
 let container = document.getElementById("container")
 
 let file
@@ -81,11 +83,18 @@ async function upload() {
             confirmPage.classList.add("visible")
             container.classList.add("darken")
             setTimeout(function(){
-                window.location.href = "/gifs"
-            }, 2000);
+                window.location.href = `profile/${user.userid}`
+            }, 4000);
         }
     } catch (error) {
-        console.error(error.message);
+        confirmPage.classList.remove("invisible")
+        confirmPage.classList.add("visible")
+        container.classList.add("darken")
+        confirmText.innerHTML = `Error: ${error.message}<br><sub>Please try again<br>Window will reload shortly</sub>`
+        confirmImg.style = "visibility: hidden; position:absolute;"
+        setTimeout(function(){
+            window.location.reload()
+        }, 4000);
     }
      
 
@@ -129,6 +138,15 @@ async function me() {
         }
     } catch (error) {
         console.error(error.message);
+
+        confirmPage.classList.remove("invisible")
+        confirmPage.classList.add("visible")
+        container.classList.add("darken")
+        confirmText.innerHTML = `You are either logged out, or unauthorized. Please sign into valid account.<br><br><sub>You will be redirected to the home page shortly.</sub>`
+        confirmImg.style = "visibility: hidden; position:absolute;"
+        setTimeout(function(){
+            window.location.href = "/"
+        }, 6000);
     }
 }
 me();
