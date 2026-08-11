@@ -119,43 +119,46 @@ function addImg(data) {
 
 
 async function loadGallery(add) {
+    if (loading) return;
+    if (add && foundAllResults) return;
+
     let url = `https://tripletripletriplebakabakabaka.club/api/v1/search?`;
     try {
-        //console.log((!add || !foundAllResults)
-        if (!add || !foundAllResults) {
-            const params = new URLSearchParams();
-            if (add) {
-                params.append("pos", loaded)
-            } else {
-                gallery = {}
-                loaded = 0
-                content.innerHTML = ""
-            }
-            for (const [key, data] of Object.entries(searchterms)) {
-                params.append("q", data)
-            }
-            params.append("limit", maxImgs+1)
-            const response = await fetch(url+params)
-            if (!response.ok) {
-                throw new Error(response.status);
-            }
+        loading = true;
+        const params = new URLSearchParams();
+        if (add) {
+            params.append("pos", loaded)
+        } else {
+            gallery = {}
+            loaded = 0
+            foundAllResults = false
+            content.innerHTML = ""
+        }
+        for (const [key, data] of Object.entries(searchterms)) {
+            params.append("q", data)
+        }
+        params.append("limit", maxImgs+1)
+        const response = await fetch(url+params)
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
 
-            const result = await response.json();
-            if (result) {
-                foundAllResults = (result.results.length <= 0)
-                for (let i = 0; i < result.results.length; i++) {
-                    let data = result.results[i]
-                    loaded++
-                    if (data.media && data.id != post.id) {
-                        gallery[data.id] = data
-                        addImg(data);
-                    }
+        const result = await response.json();
+        if (result) {
+            foundAllResults = !result.next
+            for (let i = 0; i < result.results.length; i++) {
+                let data = result.results[i]
+                loaded++
+                if (data.media && data.id != post.id) {
+                    gallery[data.id] = data
+                    addImg(data);
                 }
             }
         }
     } catch (error) {
         console.error(error.message);
-        return;
+    } finally {
+        loading = false;
     }
 }
 

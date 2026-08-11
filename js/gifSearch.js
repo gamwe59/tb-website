@@ -103,54 +103,56 @@ function addImg(data) {
 
 
 async function loadGallery(add) {
+    if (loading) return;
+    if (add && foundAllResults) return;
+
     let filter = USP.getAll("s")
     searchterms = filter.slice()
-    //console.log((searchterms)
     search.value = ""
     for (const [key, data] of Object.entries(searchterms)) {
         search.value += data
     }
     let url = `https://tripletripletriplebakabakabaka.club/api/v1/search?`;
     try {
-        //console.log((!add || !foundAllResults)
-        if (!add || !foundAllResults) {
-            const params = new URLSearchParams();
-            if (add) {
-                params.append("pos", loaded)
-            } else {
-                gallery = {}
-                loaded = 0
-                content.innerHTML = ""
-            }
-            if (searchterms.length >= 1) {
-                for (const [key, data] of Object.entries(searchterms)) {
-                    params.append("q", data)
-                }
-            } else {
-                url = `https://tripletripletriplebakabakabaka.club/api/v1/media/all?`
-            }
-            const response = await fetch(url+params)
-            if (!response.ok) {
-                throw new Error(response.status);
-            }
-
-            const result = await response.json();
-            if (result) {
-                foundAllResults = (result.results.length <= 0)
-                for (let i = 0; i < result.results.length; i++) {
-                    let data = result.results[i]
-                    loaded++
-                    if (data.media) {
-                        gallery[data.id] = data
-                        addImg(data);
-                    }
-                }
-            setSize();
+        loading = true;
+        const params = new URLSearchParams();
+        if (add) {
+            params.append("pos", loaded)
+        } else {
+            gallery = {}
+            loaded = 0
+            foundAllResults = false
+            content.innerHTML = ""
         }
+        if (searchterms.length >= 1) {
+            for (const [key, data] of Object.entries(searchterms)) {
+                params.append("q", data)
+            }
+        } else {
+            url = `https://tripletripletriplebakabakabaka.club/api/v1/media/all?`
+        }
+        const response = await fetch(url+params)
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+
+        const result = await response.json();
+        if (result) {
+            foundAllResults = !result.next
+            for (let i = 0; i < result.results.length; i++) {
+                let data = result.results[i]
+                loaded++
+                if (data.media) {
+                    gallery[data.id] = data
+                    addImg(data);
+                }
+            }
+            setSize();
         }
     } catch (error) {
         console.error(error.message);
-        return;
+    } finally {
+        loading = false;
     }
 }
 loadGallery(false)
