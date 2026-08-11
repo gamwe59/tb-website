@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TB - Upload</title>
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/info.css">
+    <link rel="stylesheet" href="/upload.css">
+</head>
+<body>
+    <nav>
+        <a href="/" class="neru">HOME</a>
+        <a href="/gifs" class="miku">GIFS</a>
+        <a href="/profiles" class="teto">PROFILES</a>
+        <div class="profile" id="profile">
+            <script type="module" src="./profilebutton.js"></script>
+        </div>
+    </nav>
+    <div class="container" id="container">
+        <main>
+            <div class="upload">
+                <div class="input">
+                    <div class="background">
+                        <img src="/images/upload.png">
+                        <label class="big" for="files">Drag & Drop to Upload Here</label>
+                        <label class="small" for="files">PNGs, JPEGs, WEBPs, and GIFs</label>
+                    </div>
+                    <input id="file" type="file">
+                </div>
+                <p id="curfile">No File Uploaded</p>
+            </div>
+            <div class="tags invisible" id="pagetwo">
+                <div class="idkbye">
+                    <img src="" id="display">
+                    <div class="addtags">
+                        <input type="text" placeholder="Add Tags" id="taginput">
+                        <div class="addedTags" id="tagfolder">
+                        </div>
+                    </div>
+                </div>
+                <div class="useOriginal">
+                    <input type="checkbox" id="useOriginal">
+                    <label for="useOriginal">use original</label>
+                </div>
+                <button class="upbutton" id="upbutton">UPLOAD</button>
+                <script type="module" src="./upload.js"></script>
+            </div>
+        </main>
+        <div class="info">
+            <p>made with love by</p>
+            <div class="links">
+                <a href="https://gaq9.com">lunascape</a>
+                <p>l</p>
+                <a href="https://yurion.top">emilosophy</a>
+            </div>
+        </div>
+    </div>
+    <div class="confirm invisible" id="confirm">
+        <header>Uploaded</header>
+        <img src="https://media1.tenor.com/m/rRh-i-KIpAAAAAAd/yakuza-kiryu.gif">
+    </div>
+</body>
+</html>

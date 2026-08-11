@@ -1,0 +1,343 @@
+body {
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width:100vw;
+    min-height:100vh;
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(#fdfddc, #e6d7a3);
+    height:fit-content;
+}
+
+main {
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    padding-bottom:15px;
+    padding-top:15px;
+    color:rgb(49, 48, 41);
+    margin-bottom: 50px;
+    flex-direction: column;
+}
+main header {
+    font-weight: 800;
+    font-size: 70px;
+    margin:0;
+    padding:0;
+    margin-bottom: 10px;
+}
+main p {
+    margin:0;
+    padding:0;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom:20px;
+}
+
+.upload {
+    width:1000px;
+    max-width: 90%;
+    height:auto;
+    aspect-ratio: 1.67;
+    background-color: #fcf5dc;
+    border-radius: 50px;
+    display:flex;
+    flex-direction: column;
+    margin:10px;
+}
+.input {
+    display: grid;
+    flex-grow: 100;
+    margin:0;
+    padding:0;
+}
+.background {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    margin:0;
+    padding:0;
+}
+.background img {
+    filter:brightness(0.1) sepia();
+    width:15%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    margin:20px;
+}
+.upload input {
+    width:100%;
+    height:100%;
+    display: flex;    
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+}
+.upload input::file-selector-button {
+    margin:2%;
+    width:96%;
+    height:92%;
+    align-self: center;
+    justify-self: center;
+    background:none;
+    border-style: dashed;
+    border-radius: 30px;
+    border-width: 5px;
+    background-color: #00000000;
+    color: #00000000;
+    cursor: pointer;
+    display:block;
+    transition-duration: 0.1s;
+}
+.upload input::file-selector-button:hover {
+    background-color: #4932031c;
+    transition-duration: 0.1s;
+}
+
+.upload label {
+    color:rgb(49, 48, 41);
+    font-size: 20px;
+}
+.upload .big {
+    font-weight: 700;
+    font-size: 30px;
+}
+.upload p {
+    margin:2%;
+    margin-top: none;
+    margin-bottom: none;
+    background:none;
+    height:30px;
+    width:fit-content;
+    padding:10px;
+    cursor: pointer;
+    display:block;
+}
+
+.tags {
+    width:1000px;
+    max-width: 90%;
+    margin:10px;
+    background-color: #fcf5dc;
+    border-radius: 50px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.idkbye {
+    display:flex;
+    height:100%;
+    width:calc(100% - 40px);
+    margin:20px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.tags img {
+    width:300px;
+    height:auto;
+    object-fit: contain;
+    align-self: baseline;
+    border-radius: 30px;
+}
+
+.addtags {
+    margin-left: 10px;
+    display:flex;
+    flex-direction: column;
+}
+
+.addtags input {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    width:300px;
+    max-width: 90%;
+    aspect-ratio: 10;
+    font-size: 18px;
+    padding:5px;
+    margin:5px;
+}
+
+.addedTags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    width:100%;
+    max-width: 100%;
+}
+.addedTags .tag {
+    background-color: rgb(100, 62, 37);
+    border-radius: 15px;
+    padding: 7px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin:5px;
+    color: white;
+    display:flex;
+    flex-direction: row;
+    width:fit-content;
+}
+.addedTags p {
+    flex-grow: 100;
+    max-width: 200px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+    margin:0;
+    margin-right: 5px;
+}
+.addedTags .tag button {
+    font-family:monospace;
+    margin-left:5px;
+    border: none;
+    background-color: rgb(138, 103, 83);;
+    height:30px;
+    aspect-ratio: 1;
+    color:white;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin:0;
+}
+
+.upbutton {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:10px;
+    margin-bottom: 20px;
+    padding:12px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #107ce0;
+    border:none;
+    color:white;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.2s;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+    transition-duration: 0.2s;
+}
+
+.confirm {
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    width:600px;
+    z-index: 10;
+    background-color: rgb(255, 245, 242);
+    padding:40px;
+    border-radius: 40px;
+    max-width: 70%;
+}
+.confirm header {
+    width:100%;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color:rgb(49, 48, 41);
+}
+.confirm img {
+    width:100%;
+    border-radius: 20px;
+}
+
+.darken {
+    transition-duration: 0.2s;
+    filter:brightness(0.5);
+    pointer-events: none;
+}
+
+/* Mobile CSS */
+
+@media only screen and (max-width: 768px) {
+    .upload {
+        height:300px;
+    }
+    .tags {
+        width:100%;
+        height:fit-content;
+    }
+    .tags img {
+        height:auto;
+        width:100%;
+        align-self: center;
+        justify-self: center;
+    }
+    .idkbye {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .addtags {
+        align-items: center;
+        justify-content: center;
+        width:100%;
+        margin:0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .addedTags {
+        margin-left:5px;
+    }
+    .addedTags p {
+        font-size: 16px;
+    }
+    .addedTags p button {
+        font-size: 15px;
+    }
+
+    .upload label {
+        font-size: 16px;
+    }
+    .upload .big {
+        font-size: 18px;
+    }
+    .upload p {
+        margin: 4%;
+        font-size: 16px;
+    }
+    
+    .upload input::file-selector-button {
+        margin:5%;
+        width:90%;
+        height:90%;
+    }
+    .addedTags p {
+        background-color: rgb(100, 62, 37);
+        border-radius: 15px;
+        padding: 7px;
+        padding-right: 15px;
+        padding-left: 10px;
+        margin:5px;
+        color: white;
+        display:flex;
+        width:fit-content;
+    }
+}

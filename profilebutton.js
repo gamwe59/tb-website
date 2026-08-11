@@ -2,6 +2,23 @@ let profile = document.getElementById("profile")
 
 let user
 
+async function signOut() {
+    const url = `https://tripletripletriplebakabakabaka.club/api/auth/logout`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+
+        const result = await response.json();
+        if (user) {
+            console.log(result)
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
 async function me() {
     const url = `https://tripletripletriplebakabakabaka.club/api/v1/users/me`;
     try {
@@ -36,17 +53,25 @@ function loadProfile() {
         dropdown.id = "dropdown"
         dropdown.classList.add("dropdown", "dropclose")
         let view = document.createElement("a")
-        view.href=`/profile${user.userid}`
+        view.href=`/profile/${user.userid}`
         view.textContent = "view profile"
-        let signout = document.createElement("a")
+        let edit = document.createElement("button")
+        edit.textContent = "edit profile"
+        let signout = document.createElement("button")
         signout.textContent = "sign out"
+        signout.style = "margin-bottom: 10px;"
         dropdown.appendChild(view)
+        dropdown.appendChild(edit)
         dropdown.appendChild(signout)
         profile.append(dropdown)
 
         butt.onclick = function() {
             dropdown.classList.toggle("dropopen")
             dropdown.classList.toggle("dropclose")
+        }
+
+        signout.onclick = function() {
+            signOut()
         }
     } else {
         let butt = document.createElement("a")
