@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TB - Profile</title>
-    <link rel="stylesheet" href="/nav.css">
-    <link rel="stylesheet" href="/gallery.css">
-    <link rel="stylesheet" href="/info.css">
-    <link rel="stylesheet" href="/searchbar.css">
-    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+    <link rel="stylesheet" href="/css/info.css">
+    <link rel="stylesheet" href="/css/searchbar.css">
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
     <nav>
@@ -16,19 +16,19 @@
         <a href="/gifs" class="miku">GIFS</a>
         <a href="/upload" class="teto">UPLOAD</a>
         <div class="profile" id="profile">
-            <script type="module" src="./profilebutton.js"></script>
+            <script type="module" src="/js/profilebutton.js"></script>
         </div>
     </nav>
     <div class="container">
         <div class="search">
             <div class="searchholder">
                 <input type="search" name="search" placeholder="Search for GIFs and Images" id="search"></input>
-                <script type="module" src="./offpagesearch.js"></script>
+                <script type="module" src="/js/offpagesearch.js"></script>
             </div>
         </div>
         <img id="banner" class="banner">
         <main>
-            <img src="./images/404.png" id="profileimage">
+            <img src="/images/404.png" id="profileimage">
             <div class="ontop">
                 <header id="username">404</header>
                 <p id="bio"></p>
@@ -37,7 +37,7 @@
         <div class="gallery">
             <header>GIFs and Images</header>
             <div id="content" class="content"></div>
-            <script type="module" src="./generateProfile.js"></script>
+            <script type="module" src="/js/generateProfile.js"></script>
         </div>
         <div class="info">
             <p>made with love by</p>

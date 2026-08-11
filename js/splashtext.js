@@ -1,4 +1,4 @@
-import usertext from "./splashtext.json" with { type: "json" }
+import usertext from "../splashtext.json" with { type: "json" }
 
 let text = document.getElementById("splashtext")
 

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TB - Upload</title>
-    <link rel="stylesheet" href="/nav.css">
-    <link rel="stylesheet" href="/info.css">
-    <link rel="stylesheet" href="/upload.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/info.css">
+    <link rel="stylesheet" href="/css/upload.css">
 </head>
 <body>
     <nav>
@@ -14,7 +14,7 @@
         <a href="/gifs" class="miku">GIFS</a>
         <a href="/upload" class="teto">UPLOAD</a>
         <div class="profile" id="profile">
-            <script type="module" src="./profilebutton.js"></script>
+            <script type="module" src="/js/profilebutton.js"></script>
         </div>
     </nav>
     <div class="container" id="container">
@@ -23,8 +23,8 @@
                 <div class="input">
                     <div class="background">
                         <img src="/images/upload.png">
-                        <label class="big" for="files">Drag & Drop to Upload Here</label>
-                        <label class="small" for="files">PNGs, JPEGs, WEBPs, and GIFs</label>
+                        <label class="big" for="file">Drag & Drop to Upload Here</label>
+                        <label class="small" for="file">PNGs, JPEGs, WEBPs, and GIFs</label>
                     </div>
                     <input id="file" type="file">
                 </div>
@@ -44,7 +44,7 @@
                     <label for="useOriginal">use original</label>
                 </div>
                 <button class="upbutton" id="upbutton">UPLOAD</button>
-                <script type="module" src="./upload.js"></script>
+                <script type="module" src="/js/upload.js"></script>
             </div>
         </main>
         <div class="info">
