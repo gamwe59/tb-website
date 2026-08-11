@@ -52,7 +52,7 @@ function uploaded() {
 async function upload() {
     const form = new FormData();
     let newFile = new File([file], file.name)
-    console.log(newFile)
+    //console.log((newFile)
     form.append('file', newFile);
     let tagsString = ""
     for (const [key, child] of Object.entries(addedTags)) {
@@ -78,7 +78,7 @@ async function upload() {
 
         const result = await response.json();
         if (result) {
-            console.log(result)
+            //console.log((result)
             confirmPage.classList.remove("invisible")
             confirmPage.classList.add("visible")
             container.classList.add("darken")
@@ -106,7 +106,7 @@ fileUpload.addEventListener('change', function () {
   if (singleFile) {
     file = singleFile
     filename.textContent = file.name
-    console.log(file)
+    //console.log((file)
     uploaded()
   }
 }, false);
@@ -118,7 +118,7 @@ taginput.addEventListener("keyup", function(e) {
 })
 
 upbutton.onclick = function() {
-    console.log(addedTags)
+    //console.log((addedTags)
     upload();   
 }
 
@@ -134,7 +134,7 @@ async function me() {
         const result = await response.json();
         user = result.user;
         if (user) {
-            console.log(user)
+            //console.log((user)
         }
     } catch (error) {
         console.error(error.message);

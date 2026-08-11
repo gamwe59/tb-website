@@ -42,7 +42,7 @@ function setSize() {
         let format = img.media.webp
         if (!format) {
             format = img.media.original
-            console.log(format)
+            //console.log((format)
         }
 
         let aspectRatio = format.dims[0]/format.dims[1]
@@ -104,7 +104,7 @@ function addImg(data) {
 async function loadGallery(add) {
     let url = `https://tripletripletriplebakabakabaka.club/api/v1/search?`;
     try {
-        console.log(!add || !foundAllResults)
+        //console.log((!add || !foundAllResults)
         if (!add || !foundAllResults) {
             const params = new URLSearchParams();
             if (add) {

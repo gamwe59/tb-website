@@ -105,14 +105,14 @@ function addImg(data) {
 async function loadGallery(add) {
     let filter = USP.getAll("s")
     searchterms = filter.slice()
-    console.log(searchterms)
+    //console.log((searchterms)
     search.value = ""
     for (const [key, data] of Object.entries(searchterms)) {
         search.value += data
     }
     let url = `https://tripletripletriplebakabakabaka.club/api/v1/search?`;
     try {
-        console.log(!add || !foundAllResults)
+        //console.log((!add || !foundAllResults)
         if (!add || !foundAllResults) {
             const params = new URLSearchParams();
             if (add) {
@@ -157,7 +157,7 @@ loadGallery(false)
 
 search.addEventListener("keyup", function(e) {
     if (event.key === "Enter") {
-        console.log(search.value)
+        //console.log((search.value)
         searchterms = [search.value]
         USP.delete("s")
         USP.append("s", search.value)

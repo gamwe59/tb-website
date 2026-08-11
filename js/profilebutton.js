@@ -12,7 +12,7 @@ async function signOut() {
 
         const result = await response.json();
         if (user) {
-            console.log(result)
+            //console.log((result)
         }
     } catch (error) {
         console.error(error.message);
@@ -79,6 +79,6 @@ function loadProfile() {
         butt.classList.add("signin")
         butt.href = "https://tripletripletriplebakabakabaka.club/api/auth/discord"
         profile.append(butt)
-        console.log("pee")
+        //console.log(("pee")
     }
 }

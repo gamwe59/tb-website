@@ -47,7 +47,7 @@ async function getUser() {
         const result = await response.json();
         let newuser = result.user;
         if (newuser) {
-            console.log(user)
+            //console.log((user)
             loadProfile(newuser)
         }
     } catch (error) {
@@ -57,7 +57,7 @@ async function getUser() {
 }
 
 function displayPost() {
-    console.log(post)
+    //console.log((post)
     user = post.user
     if (post.media.webp) {
         displayImg.src = post.media.webp.url
@@ -121,7 +121,7 @@ function addImg(data) {
 async function loadGallery(add) {
     let url = `https://tripletripletriplebakabakabaka.club/api/v1/search?`;
     try {
-        console.log(!add || !foundAllResults)
+        //console.log((!add || !foundAllResults)
         if (!add || !foundAllResults) {
             const params = new URLSearchParams();
             if (add) {
