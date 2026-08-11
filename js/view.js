@@ -21,7 +21,7 @@ let foundAllResults = false
 
 let searchterms = []
 
-const testid = window.location.pathname.split('/profile/')[1];
+const testid = window.location.pathname.split('/view/')[1];
 let post
 let user
 let curFormat = "webp"
